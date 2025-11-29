@@ -1,0 +1,25 @@
+# ----------------------------
+# Fail2Ban SSH Jail Yapılandırması
+# ----------------------------
+
+[sshd]
+
+# Jaili aktifleştiriyoruz.
+enabled = true
+
+# SSH portumuzu belirtiyoruz.
+port = 2299
+
+# Logların nerede olduğunu tanımlıyoruz.
+logpath = /var/log/auth.log
+
+# Bir IP'nin banlanmadan önce kaç deneme hakkı olduğunu tanımlıyoruz.
+maxretry = 3
+
+# Başarısız girişimlerin ne kadarda bir sayılacağını belirliyoruz.
+findtime = 1m #1 dakika
+
+# Banlanan IP'nin ne kadar banlanacağını tanımlıyoruz.
+bantime = 600        #10 dakika
+
+

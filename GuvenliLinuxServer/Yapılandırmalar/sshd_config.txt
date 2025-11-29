@@ -1,0 +1,17 @@
+# ----------------------------
+# Güvenli Ubuntu Server SSH Yapılandırması
+# ----------------------------
+
+# DİKKAT BU DOSYA SSHD_CONFIG'IN TAMAMINI İÇERMEMEKTEDİR SADECE YAPILAN DEĞİŞİKLİKLERİ İÇERMEKTEDİR #
+
+# SSH portu default olan 22'den 2299'a ayarlandı.
+Port 2299
+
+# Saldırganların root olarak yapabileceği daha kolay saldırıları engellemek için root girişi engellendi
+PermitRootLogin no
+
+# Parola doğrulaması etkinleştirildi.
+PasswordAuthentication yes
+
+# Kaliden giriş için key oluşturulduğundan Public Key doğrulaması aktifleştirildi.
+PubkeyAuthentication yes
