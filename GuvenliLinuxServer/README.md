@@ -77,13 +77,13 @@ PubKeyAuthentication no  # Kaliden giriş için key oluşturulduğundan Public K
 
 Sözdizimi kontrolü:
 
-```bash
-sudo sshd -t
+```
+sudo sshd -t    # Config dosyamızda hata var mı kontrol ediyoruz.
 ```
 
-SSH servisi yeniden başlatıldı:
+SSH servisi yeniden başlatılıyor:
 
-```bash
+```
 sudo systemctl restart ssh
 ```
 
@@ -93,8 +93,8 @@ sudo systemctl restart ssh
 
 Bağlantı şu şekilde test edildi:
 
-```bash
-ssh -p 2299 ural@10.0.2.4
+```
+ssh -p 2299 ural@10.0.2.4  #SSH ile servera bağlanmak için bu ifadeyi kullanıyoruz.
 ```
 
 Toplanan veriler:
@@ -103,15 +103,13 @@ Toplanan veriler:
 * Başarılı bağlantılar
 * Loglarda brute‑force benzeri davranışlar
 
-Tüm veriler `/logs` dizinine eklendi.
-
 ---
 
 ## 📄 **4. Log Analizi**
 
 Authentication logları incelendi:
 
-```bash
+```
 sudo tail -f /var/log/auth.log
 ```
 
@@ -139,7 +137,7 @@ ural
 
 Hydra saldırısı:
 
-```bash
+```
 hydra -l ural -P şifreler.txt -s 2299 ssh://10.0.2.4 -t 4 -V
 ```
 
@@ -155,7 +153,7 @@ Sonuç:
 
 Kurulum:
 
-```bash
+```
 sudo apt install fail2ban
 ```
 
@@ -173,13 +171,13 @@ bantime = 600 # 10 dakika
 
 Fail2Ban aktifleştirme:
 
-```bash
+```
 sudo systemctl enable --now fail2ban
 ```
 
 Ban listesini görüntüleme:
 
-```bash
+```
 sudo fail2ban-client status sshd
 ```
 
