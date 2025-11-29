@@ -43,13 +43,13 @@ ping 10.0.2.15
 
 SSH durumu kontrol edildi:
 
-```bash
-sudo systemctl status ssh
+```
+sudo systemctl status ssh 
 ```
 
-Eğer servis aktif değilse:
+Eğer servis aktif değilse aşağıdaki komutla aktif edildi:
 
-```bash
+```
 sudo systemctl enable --now ssh
 ```
 
@@ -68,9 +68,11 @@ sudo nano /etc/ssh/sshd_config
 Değiştirilen kritik ayarlar:
 
 ```
-Port 2299
-PermitRootLogin no
-PasswordAuthentication yes/no (her ikisi de test edildi)
+Port 2299    # Varsayılan SSH Portu 22'dir, portu değiştirerek saldırganların amaçlarına ulaşmasını zorlaştırıyoruz.
+PermitRootLogin no  # root kullanıcı adıyla yapılan BruteForce denemelerinin başarılı olma ihtimali daha yüksek olduğundan root girişini kapatıyoruz.
+PasswordAuthentication yes/no (her ikisi de test edildi)   # Ubuntu Serverımıza serverın şifresiyle girilip girilmeyeceğini kararlaştırıyoruz.
+PubKeyAuthentication no  # Kaliden giriş için key oluşturulduğundan Public Key doğrulamasını aktifleştiriyoruz böylece kullanıcı giriş yaparken tekrar parola girmek zorunda kalmıyor.
+
 ```
 
 Sözdizimi kontrolü:
