@@ -149,6 +149,8 @@ Sonuç:
 
 ---
 
+#ÖNEMLİ: BruteForce saldırısı SSH'a erişimde çok önerilmez, saldırganın ban yeme ihtimali çok yüksektir.
+
 ## 🛡 **6. Fail2Ban ile Otomatik IP Engelleme**
 
 Kurulum:
